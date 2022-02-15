@@ -1,0 +1,46 @@
+import Head from "next/head";
+import Link from "next/link";
+
+const MainLayout = ({ children, title = "Tutorial App" }) => {
+  return (
+    <>
+      <Head>
+        <title>{title}</title>
+      </Head>
+      <nav>
+        <Link href={"/"}>
+          <a>Home</a>
+        </Link>
+        <Link href={"/about"}>
+          <a>About</a>
+        </Link>
+        <Link href={"/posts"}>
+          <a>Posts</a>
+        </Link>
+      </nav>
+      <main>{children}</main>
+      <style jsx>
+        {`
+          nav {
+            height: 60px;
+            left: 0;
+            right: 0;
+            background: darkblue;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+          }
+          nav a {
+            color: #fff;
+            font-size: 24px;
+            text-decoration: none;
+          }
+          main {
+            padding: 20px 40px;
+          }
+        `}
+      </style>
+    </>
+  );
+};
+export default MainLayout;
